@@ -1,0 +1,72 @@
+[
+  {
+    "source_at_copy_time": "elrobot_assets/rig/calibration.json",
+    "local_copy": "config/calibration.json",
+    "sha256": "924caf6bb385006436b84c3ac0006ef6643b3b9be86d6a09edd417494368f558"
+  },
+  {
+    "source_at_copy_time": "elrobot_assets/rig/rig-map.json",
+    "local_copy": "config/rig-map.json",
+    "sha256": "57dfbc59b54f5a7b2767beda3a25c4e57b61c69f6815fb8afd303a4b1d2d54f4"
+  },
+  {
+    "source_at_copy_time": "elrobot_assets/rig/intrinsics.json",
+    "local_copy": "config/reference/intrinsics.json",
+    "sha256": "516107e1ea58237efe791e71517b6478f83ef9becb155bac9d8c893aec84b57e"
+  },
+  {
+    "source_at_copy_time": "elrobot_assets/rig/refinement.json",
+    "local_copy": "config/reference/refinement.json",
+    "sha256": "eff41ddba362c6649139123d39c742f196ba2b5da03f177743e610b14ebb0558"
+  },
+  {
+    "source_at_copy_time": "elrobot_assets/rig/refinement-latest.json",
+    "local_copy": "config/reference/refinement-latest.json",
+    "sha256": "9ff7af479bce5e616e6a9a3e33e057517d93fec3cf5529b23950ac553e3a03e4"
+  },
+  {
+    "source_at_copy_time": "elrobot_assets/rig/station.yaml",
+    "local_copy": "config/reference/station.yaml",
+    "sha256": "3d8e41fbf1cdefa5f131d13aa2bd3fcecd7a7c91e1b846c7f452133cbe297640"
+  },
+  {
+    "source_at_copy_time": "elrobot_assets/rig/station-calib.yaml",
+    "local_copy": "config/reference/station-calib.yaml",
+    "sha256": "f6f033e2bc7550621251030f39ed1aa3e8a284ca85ece99a638ec830277ce8fc"
+  },
+  {
+    "source_at_copy_time": "elrobot_assets/rig/99-elrobot-rig.rules",
+    "local_copy": "config/99-elrobot-rig.rules",
+    "sha256": "541fc808f798318c7c6806bf2c91fbeb7a2a5bb769681ce47551d1b1c2ce166f"
+  },
+  {
+    "source_at_copy_time": "norma-core/software/drivers/st3215/src/protocol/packet.rs",
+    "local_copy": "reference/protocol/packet.rs",
+    "sha256": "bae0eb9151a8e00bb38b1cb912caf62a9a50fdfc502ff540e9196815e3a7b3ba"
+  },
+  {
+    "source_at_copy_time": "norma-core/software/drivers/st3215/src/protocol/packet_test.rs",
+    "local_copy": "reference/protocol/packet_test.rs",
+    "sha256": "4125005c54d914c7d13e58ae0b00fa875eb05edfacbe6ea80631718e7c40934b"
+  },
+  {
+    "source_at_copy_time": "norma-core/software/drivers/st3215/src/protocol/memory.rs",
+    "local_copy": "reference/protocol/memory.rs",
+    "sha256": "fca671760171732e26c020ca8cac4668f64efba1f93ef506f9940a5ca4e128e9"
+  },
+  {
+    "source_at_copy_time": "norma-core/software/drivers/st3215/src/protocol/units.rs",
+    "local_copy": "reference/protocol/units.rs",
+    "sha256": "807a132fbf782c68c2678226f3f55eda472d9269cfb53a386bd767e742bf5d07"
+  },
+  {
+    "source_at_copy_time": "norma-core/LICENSE",
+    "local_copy": "reference/protocol/LICENSE",
+    "sha256": "84d8d9c375613d23ae2a97a458bbb331e6b06ec6380222e44725d9b154c65948"
+  },
+  {
+    "source_at_copy_time": "custom_policy.py",
+    "local_copy": "reference/server_policy_example.py",
+    "sha256": "0c487b49942704e3e1bf1e915875dd4e5533b5c4d936b544a15cc04d695046b1"
+  }
+]

@@ -1,0 +1,23 @@
+# norma-core station config for calibration sessions (phase 1).
+#
+# Same as station.yaml minus the cameras, because manual calibration needs none
+# and they are 78 % of the write rate. Measured here: 35 GB/h with cameras,
+# 7.8 GB/h without. See ../docs/calibration.md for the procedure.
+#
+# There is no usb-video block at all. `enabled: false` works too, but deleting
+# the block is unambiguous — the station logs "No USB video configuration found".
+
+drivers:
+  st3215:
+    enabled: true
+    current-threshold: 100
+    deadband: 20
+    motor-current-thresholds:
+      8: 40
+
+  # Bare bool, no serde default: omitting it is a hard parse error at startup.
+  system-info: true
+
+# Empty list = inference off. Omitting the key instead starts a default normvla
+# config, which would add its own queue for no benefit here.
+inference: []

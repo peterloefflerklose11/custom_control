@@ -1,0 +1,333 @@
+{
+ "_comment": "Camera intrinsics for this robot, written by rig/intrinsics/solve.py. Per-robot, like calibration.json and rig-map.json -- never copy one between rigs. Intrinsics are for the resolution named in each entry; `solve.py derive` converts them to another mode.",
+ "solved_at": "2026-08-09T10:57:02+00:00",
+ "board": {
+  "squares_x": 13,
+  "squares_y": 9,
+  "square_mm": 20.0,
+  "marker_mm": 15.0,
+  "dictionary": "DICT_5X5_100",
+  "corners": 96
+ },
+ "sessions": [
+  "../calib_capture/2026-08-09T12-05_intrinsics-pose"
+ ],
+ "cameras": {
+  "left_wrist": {
+   "name": "left_wrist",
+   "role": "left_wrist_cam",
+   "half": null,
+   "family": "wrist",
+   "width": 1920,
+   "height": 1080,
+   "distortion_model": "rational_polynomial",
+   "camera_matrix": [
+    1230.257042333812,
+    0.0,
+    990.7075068975051,
+    0.0,
+    1229.9495436986945,
+    594.7388049040003,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "distortion": [
+    7.400584707088021,
+    -4.552745648798986,
+    0.00018508233662062635,
+    0.00022300704852006945,
+    -0.9043361256601459,
+    7.88926434482742,
+    -1.4662714227187823,
+    -3.3665817466629724,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "rms_px": 0.7734600898009318,
+   "views_used": 85,
+   "views_total": 90,
+   "stddev_fx_fy_cx_cy": [
+    1.1447897158146652,
+    1.1226562799231434,
+    1.673283822455229,
+    1.1340113990979799
+   ],
+   "coverage_pct": 88,
+   "border_coverage_pct": 75,
+   "blocked_cells": [],
+   "reachable_coverage_pct": 88,
+   "reachable_border_coverage_pct": 75,
+   "board_residual_px": {
+    "worst": 1.2152428952130405,
+    "median": 0.6251435417660083
+   }
+  },
+  "right_wrist": {
+   "name": "right_wrist",
+   "role": "right_wrist_cam",
+   "half": null,
+   "family": "wrist",
+   "width": 1920,
+   "height": 1080,
+   "distortion_model": "rational_polynomial",
+   "camera_matrix": [
+    1235.9321814996958,
+    0.0,
+    1011.3529443562355,
+    0.0,
+    1234.444877537298,
+    543.4791400066916,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "distortion": [
+    16.030749418726717,
+    4.8102869224132645,
+    -0.0009283173845437412,
+    -0.0004649511239396189,
+    -0.1304176798827643,
+    16.514426948780105,
+    11.94944710669579,
+    0.5065603119570523,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "rms_px": 0.5887850736248231,
+   "views_used": 106,
+   "views_total": 116,
+   "stddev_fx_fy_cx_cy": [
+    0.8184360332239874,
+    0.7656907059131652,
+    1.2879003267687097,
+    1.1224918477602068
+   ],
+   "coverage_pct": 90,
+   "border_coverage_pct": 79,
+   "blocked_cells": [],
+   "reachable_coverage_pct": 90,
+   "reachable_border_coverage_pct": 79,
+   "board_residual_px": {
+    "worst": 1.2012428323427835,
+    "median": 0.43781853838513296
+   }
+  },
+  "stereo_left": {
+   "name": "stereo_left",
+   "role": "overhead_stereo_cam",
+   "half": "left",
+   "family": "stereo",
+   "width": 1600,
+   "height": 1200,
+   "distortion_model": "rational_polynomial",
+   "camera_matrix": [
+    600.5195284628769,
+    0.0,
+    798.849292601807,
+    0.0,
+    600.4052713558139,
+    605.5950570227409,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "distortion": [
+    -0.3857616290674342,
+    2.242855276651868,
+    -0.00043656706520291713,
+    -0.00010637260605569226,
+    0.013213932886317253,
+    -0.33669301494127324,
+    2.1264044313291044,
+    0.13747546036846942,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "rms_px": 0.6013255231209871,
+   "views_used": 119,
+   "views_total": 130,
+   "stddev_fx_fy_cx_cy": [
+    0.28411851100280305,
+    0.27765212333888234,
+    0.22507538137983693,
+    0.23570816524817406
+   ],
+   "coverage_pct": 94,
+   "border_coverage_pct": 88,
+   "blocked_cells": [],
+   "reachable_coverage_pct": 94,
+   "reachable_border_coverage_pct": 88,
+   "board_residual_px": {
+    "worst": 1.2546974023183186,
+    "median": 0.46920444399562267
+   }
+  },
+  "stereo_right": {
+   "name": "stereo_right",
+   "role": "overhead_stereo_cam",
+   "half": "right",
+   "family": "stereo",
+   "width": 1600,
+   "height": 1200,
+   "distortion_model": "rational_polynomial",
+   "camera_matrix": [
+    600.4234413313058,
+    0.0,
+    818.071148517977,
+    0.0,
+    600.5411296271067,
+    590.8219062235187,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "distortion": [
+    -0.04900402385397947,
+    2.1149903211793113,
+    -0.00017524902048081145,
+    -4.460947786979244e-05,
+    0.05246101527184552,
+    0.0014822318178898744,
+    1.9984945640178318,
+    0.17962331745502624,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "rms_px": 0.5967091560509815,
+   "views_used": 111,
+   "views_total": 125,
+   "stddev_fx_fy_cx_cy": [
+    0.3362315456609329,
+    0.3334234931583313,
+    0.26295297694333897,
+    0.26064607415745994
+   ],
+   "coverage_pct": 96,
+   "border_coverage_pct": 92,
+   "blocked_cells": [],
+   "reachable_coverage_pct": 96,
+   "reachable_border_coverage_pct": 92,
+   "board_residual_px": {
+    "worst": 1.0280997357938602,
+    "median": 0.4327494646008694
+   }
+  }
+ },
+ "stereo": {
+  "pair": [
+   "stereo_left",
+   "stereo_right"
+  ],
+  "pairs_kept": 101,
+  "pairs_total": 106,
+  "rms_px": 0.6474746957732361,
+  "rotation": [
+   0.9997432542272959,
+   -0.0015334721212351666,
+   0.02260694783180336,
+   0.0014351061255419633,
+   0.9999894360494435,
+   0.004366721873962367,
+   -0.022613405259379136,
+   -0.004333157367267428,
+   0.9997348936842235
+  ],
+  "translation_m": [
+   -0.0593653420633013,
+   5.4171136478631965e-05,
+   0.0006693655276253965
+  ],
+  "baseline_m": 0.059369140325714435,
+  "expected_baseline_mm": 59.5,
+  "baseline_error_mm": 0.130859674285567,
+  "rectified_vertical_median_px": 0.15148162841796875,
+  "rectified_vertical_p95_px": 0.5625038146972656,
+  "raw_median_left_minus_right_px": 119.32012939453125,
+  "holdout": {
+   "pairs": 20,
+   "trained_on": 81,
+   "pair_rms_px": 0.7415161520242691,
+   "vertical_median_px": 0.17315673828125,
+   "vertical_p95_px": 0.697647094726562
+  },
+  "rectification": {
+   "stereo_left": {
+    "R": [
+     0.9999329420908218,
+     -0.0023969556286187795,
+     0.011329868724201553,
+     0.0023722002718054593,
+     0.9999947709410718,
+     0.0021978981740768027,
+     -0.011335077744049831,
+     -0.002170874069953585,
+     0.9999333994413371
+    ],
+    "P": [
+     594.2229757690111,
+     0.0,
+     812.3026123046875,
+     0.0,
+     0.0,
+     594.2229757690111,
+     596.0265579223633,
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     0.0
+    ]
+   },
+   "stereo_right": {
+    "R": [
+     0.9999360229507739,
+     -0.0009124460313853012,
+     -0.011274637361314597,
+     0.0008878148861556466,
+     0.9999972090149294,
+     -0.0021894627376452566,
+     0.011276603660555877,
+     0.0021793128713945356,
+     0.9999340422274317
+    ],
+    "P": [
+     594.2229757690111,
+     0.0,
+     812.3026123046875,
+     -35.27850723319403,
+     0.0,
+     594.2229757690111,
+     596.0265579223633,
+     0.0,
+     0.0,
+     0.0,
+     1.0,
+     0.0
+    ]
+   }
+  }
+ },
+ "warnings": [
+  "right_wrist: residuals pile up at board row 0 column 0 (1.20 px against a median of 0.44) -- that part of the print is probably not flat; remount the target and recapture",
+  "stereo_left: residuals pile up at board row 0 column 0 (1.25 px against a median of 0.47) -- that part of the print is probably not flat; remount the target and recapture",
+  "stereo_right: residuals pile up at board row 0 column 0 (1.03 px against a median of 0.43) -- that part of the print is probably not flat; remount the target and recapture"
+ ],
+ "_sessions_note": "Raw captures live outside the repository under calib_capture/, one timestamped directory per session; see its README. This file is the result and is what anything else should read."
+}

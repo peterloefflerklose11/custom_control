@@ -1,0 +1,58 @@
+{
+  "calibration_file": "config/calibration.json",
+  "robot_file": "config/robot.json",
+  "rig_map_file": "config/rig-map.json",
+  "ports": {
+    "left_follower": "/dev/elrobot/left_follower"
+  },
+  "baudrate": 1000000,
+  "serial_timeout_s": 0.15,
+  "hz": 30,
+  "home_speed_rad_s": 0.5,
+  "home_tolerance_rad": 0.05,
+  "home_max_tracking_error_rad": 0.15,
+  "home_timeout_s": 30.0,
+  "return_home_on_exit": true,
+  "chunk_steps": 30,
+  "max_chunk_horizon": 256,
+  "server_url": "wss://port8888-rgrjj05e563nnw4.tunnel.applications.eu-north1.nebius.cloud/proxy/8000/",
+  "server_url_env": null,
+  "token_env": null,
+  "env_file": null,
+  "inference_timeout_s": 100.0,
+  "max_attempts": 2,
+  "max_message_bytes": 33554432,
+  "instruction": "pick up the red brick and place it in the blue bowl",
+  "action_key": "actions",
+  "action_mode": "absolute_joints",
+  "max_joint_step_rad": 0.30,
+  "max_gripper_step": 0.35,
+  "max_tracking_error_rad": 0.35,
+  "tracking_failure_ticks": 3,
+  "clip_tolerance_rad": 0.4,
+  "camera_max_age_s": 1.5,
+  "servo_speed": 0,
+  "servo_acceleration": 50,
+  "servo_torque_limit": 1000,
+  "camera_retry_interval_s": 1.0,
+  "cameras": {
+    "left_wrist": {
+      "device": "/dev/elrobot/left_wrist_cam",
+      "width": 640,
+      "height": 360
+    },
+    "overhead": {
+      "device": "/dev/elrobot/overhead_stereo_cam",
+      "width": 1600,
+      "height": 600
+    }
+  },
+  "observation": {
+    "state_key": "observation.state",
+    "prompt_key": "task",
+    "camera_keys": {
+      "left_wrist": "observation.images.wrist",
+      "overhead_left": "observation.images.overhead"
+    }
+  }
+}

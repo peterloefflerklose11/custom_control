@@ -1,0 +1,79 @@
+{
+ "description": "Refined calibration: a DELTA on rig/calibration.json and the station MJCF, never a replacement. See calib/refinement.py.",
+ "joint_offset_deg": {
+  "left": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "right": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ "base_slide_mm": {
+  "left": -1.4431,
+  "right": 1.5202
+ },
+ "camera_height_mm": 1.4844,
+ "camera_roll_deg": -0.229,
+ "camera_forward_mm": -4.3046,
+ "bounds": {
+  "joint_deg": 5.0,
+  "base_slide_mm": 5.0,
+  "camera_height_mm": 5.0,
+  "camera_roll_deg": 2.0,
+  "camera_forward_mm": 15.0
+ },
+ "fitted_at": "2026-08-21T15:44:33",
+ "method": "differentiable render-and-compare (nvdiffrast), mask + depth",
+ "episode": "/workspace/elrobot_assets/capture/datasets/calibration/success/episode_0000",
+ "cloud": "/workspace/elrobot_assets/calib/out/episode_0000-cloud",
+ "masks": "/workspace/elrobot_assets/robotseg/out/annotate/calibration__success__episode_0000-22cb4d/masks",
+ "frames_fit": 230,
+ "frames_held_out": 26,
+ "split": "block",
+ "holdout": 0.1,
+ "held_out_steps": [
+  816,
+  905
+ ],
+ "points_per_frame": 256,
+ "render": [
+  800,
+  600
+ ],
+ "max_steps": 1024,
+ "lr": 0.002,
+ "reg": 0.0006,
+ "optimizer": "AdamW",
+ "weight_decay": 0.0,
+ "w_mask": 8.0,
+ "w_depth": 300.0,
+ "freeze_joints": true,
+ "free_parameters": 7,
+ "selection": "best held-out loss",
+ "held_out_mask_loss": [
+  0.105401,
+  0.092581
+ ],
+ "held_out_depth_loss_mm2": [
+  805.0092,
+  706.1079
+ ],
+ "at_bound": [],
+ "stereo_nuisance": {
+  "_comment": "The depth network's own response, fitted and discarded: a property of the sensor, not of the robot.",
+  "bias_mm": 5.443,
+  "scale_ppt": 1.242
+ }
+}

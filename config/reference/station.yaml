@@ -1,0 +1,108 @@
+# norma-core station config for the bimanual follower rig.
+# Run it with the command in ../docs/station.md — the data folder is a CLI flag,
+# not a setting in here, and it fills at ~35 GB/hour.
+#
+# Every key below is spelled as the serde structs want it
+# (norma-core/software/station/shared/station-iface/src/config.rs). There is no
+# deny_unknown_fields anywhere, so a misspelled key is silently ignored and you
+# get the built-in default with no warning.
+
+drivers:
+  # No port list and no allowlist: the driver claims every USB device with
+  # VID:PID 1a86:55d3. Both followers are owned by this one process; you cannot
+  # split the rig across two station instances.
+  st3215:
+    enabled: true
+
+    # Follower current above which mirroring pins the goal to the present
+    # position. 0 disables that protection.
+    current-threshold: 100
+
+    # Minimum leader/follower error before the follower is commanded, in encoder
+    # steps (4096 per output revolution). Lower = twitchier and more disk.
+    deadband: 20
+
+    # The only gripper-specific knob in the mirroring path — motor 8 is not
+    # special-cased anywhere else. This is what stops it crushing what it holds.
+    motor-current-thresholds:
+      8: 40
+
+  # Bare bool, no serde default: omitting it is a hard parse error at startup.
+  system-info: true
+
+  usb-video:
+    # Also a bare bool with no default. Delete the whole block and no camera is
+    # opened at all — which is the only way to turn video recording off.
+    enabled: true
+
+    # NOTE THE UNDERSCORE. The upstream README says `resize-target`; the struct
+    # field has no serde rename, so the real key is `resize_target` and the
+    # kebab spelling is silently ignored.
+    # 0 stores frames at capture resolution; 224 measured ~35 % smaller.
+    #
+    # 0 here, so the resolution the capture modes below pay USB bandwidth for is
+    # actually kept rather than thrown away at 224 px.
+    #
+    # Measured with the modes below: 4.45 MB/s stereo, 0.69 and 0.83 MB/s wrist,
+    # 5.98 MB/s of video, 8.18 MB/s with motor state = 28.7 GB/hour.
+    # --max-queue-disk-size is a no-op in normfs 0.1.0-beta.1, so NOTHING
+    # EVICTS: a disposable --normfs-base-folder and an eye on the clock are the
+    # only protection. On a 262 GB free disk that is about nine hours.
+    resize_target: 0
+
+    # Capture modes are NOT set here -- norma-core has no config for them, it
+    # picks per camera in usbvideo. Upstream picks MJPEG, then the highest frame
+    # rate, then the LOWEST resolution, which on this rig means 640x240 from the
+    # 3200x1200 stereo camera and 640x360 from the 1920x1080 wrist cameras.
+    #
+    # usbvideo-format-policy.patch (applied in Dockerfile.station) caps the rate
+    # at 30, prefers the highest resolution, and reads NORMA_CAMERA_MODES from
+    # the environment. Set it when launching the station -- see docs/station.md:
+    #
+    #   NORMA_CAMERA_MODES="0c45:6366=640x360@30,32e4:2b10=1600x600@30"
+    #
+    # All three cameras sit on one USB 2.0 root port (Jetson Thor has a single
+    # USB host controller), and the kernel will not grant three isochronous
+    # reservations at their largest modes -- the third camera opens and then
+    # delivers no frames at all. Measured, all three streaming at once:
+    #
+    #   stereo 1600x600@30  + wrist 640x360@30     ok   <- chosen, most headroom
+    #   stereo 3200x1200@30 + wrist 640x360@30     ok
+    #   stereo 1600x600@30  + wrist 1920x1080@30   ok
+    #   stereo 3200x1200@10 + wrist 1920x1080@30   ok   (overhead at 10 fps)
+    #   stereo 3200x1200@30 + wrist 1024x576@30    ok
+    #   stereo 3200x1200@30 + wrist 1920x1080@30   stereo gets 0 fps
+    #   stereo 3200x1200@20 + wrist 1280x720@30    stereo gets 0 fps
+    #
+    # The wall is not a stereo frame-rate dial: with wrists at 1024x576 or
+    # smaller the stereo runs full resolution at 30, and with anything larger it
+    # is pinned to 10. The jump is between wrist 1024x576 and 1280x720, one UVC
+    # alt-setting bucket, so pixel count does not predict it -- measure after any
+    # change, and treat a camera reporting exactly 0 fps as the signature.
+    #
+    # Note the chosen pair leaves room: stereo 3200x1200@30 also fits alongside
+    # 640x360 wrists, at 396 KB/frame against 125, if the overhead view ever
+    # needs the detail.
+    #
+    # Both modes stay on the exact-resize ladder, so rig/intrinsics.json still
+    # applies: exactly 1/3 for the wrists, exactly 0.5 for the stereo. Avoid the
+    # wrist 4:3 modes and stereo 2560x720 -- those are crops, not resizes, and
+    # they move the principal point and lose field of view.
+
+# Empty list = inference off, which is what you want until you are recording.
+# An OMITTED key is not the same thing: it starts a built-in default with
+# `st3215-bus: auto`, and `auto` means "the one bus with torque enabled". With
+# two followers torqued that is ambiguous and every frame is silently dropped
+# (normvla.rs:227). Name the bus explicitly instead, one config per arm:
+#
+# inference:
+#   - queue-id: "inference/left"
+#     shm: /dev/shm/normvla-left
+#     shm-size-mb: 12
+#     format: normvla
+#     st3215-bus: "5A68008537"    # left follower
+#     update-interval: 100ms
+#
+# Joints are filtered by st3215-bus but images are NOT — every camera feeds
+# every inference config, so record one arm at a time.
+inference: []

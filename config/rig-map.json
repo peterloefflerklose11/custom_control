@@ -1,0 +1,90 @@
+{
+  "left_follower": {
+    "kind": "st3215",
+    "vid": "1a86",
+    "pid": "55d3",
+    "serial": "5A68008537",
+    "product": "USB Single Serial",
+    "identity": "serial",
+    "port": "1-3.1"
+  },
+  "right_follower": {
+    "kind": "st3215",
+    "vid": "1a86",
+    "pid": "55d3",
+    "serial": "5A68009964",
+    "product": "USB Single Serial",
+    "identity": "serial",
+    "port": "1-3.3.1"
+  },
+  "left_wrist_cam": {
+    "kind": "camera",
+    "vid": "0c45",
+    "pid": "6366",
+    "serial": "SN0001",
+    "product": "Innomaker-U20CAM-1080p-S1",
+    "identity": "port",
+    "port": "1-4.1.2",
+    "anchor": {
+      "serial": "5A68009964",
+      "vid": "1a86",
+      "pid": "55d3",
+      "socket": "2"
+    },
+    "port_verified": "measured: moving only the left follower's gripper changed this stream and not the other",
+    "port_note": "MEASURED, not inferred: moving only the left follower's gripper changed this stream and not the other. anchor_for()'s assumption that a wrist camera shares a hub with its own arm's bus does not hold on this rig -- the cameras are cross-cabled, so this camera sits on the hub carrying the OTHER arm's bus adapter. Keep the anchor as-is."
+  },
+  "right_wrist_cam": {
+    "kind": "camera",
+    "vid": "0c45",
+    "pid": "6366",
+    "serial": "SN0001",
+    "product": "Innomaker-U20CAM-1080p-S1",
+    "identity": "port",
+    "port": "1-4.1.3.2",
+    "anchor": {
+      "serial": "5A68008537",
+      "vid": "1a86",
+      "pid": "55d3",
+      "socket": "2"
+    },
+    "port_verified": "measured: moving only the right follower's gripper changed this stream and not the other",
+    "port_note": "MEASURED, not inferred: moving only the right follower's gripper changed this stream and not the other. anchor_for()'s assumption that a wrist camera shares a hub with its own arm's bus does not hold on this rig -- the cameras are cross-cabled, so this camera sits on the hub carrying the OTHER arm's bus adapter. Keep the anchor as-is."
+  },
+  "overhead_stereo_cam": {
+    "kind": "camera",
+    "vid": "32e4",
+    "pid": "2b10",
+    "serial": "01.00.00",
+    "product": "3D USB Camera",
+    "identity": "serial",
+    "port": "1-3.3.3"
+  },
+  "left_leader": {
+    "kind": "st3215",
+    "vid": "1a86",
+    "pid": "55d3",
+    "serial": "5B3D042588",
+    "product": "USB Single Serial",
+    "identity": "serial",
+    "port": "1-1.3"
+  },
+  "right_leader": {
+    "kind": "st3215",
+    "vid": "1a86",
+    "pid": "55d3",
+    "serial": "5B3D047066",
+    "product": "USB Single Serial",
+    "identity": "serial",
+    "port": "1-1.4"
+  },
+  "pedal": {
+    "kind": "pedal",
+    "vid": "0fd9",
+    "pid": "0086",
+    "serial": "A00YA5362IU2T8",
+    "product": "Stream Deck Pedal",
+    "identity": "serial",
+    "port": "1-1.2"
+  }
+}

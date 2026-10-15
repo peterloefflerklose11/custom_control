@@ -1,0 +1,17 @@
+{
+  "tests_passed": 84,
+  "camera_recovery_tests_passed": 10,
+  "shutdown_tests_passed": 14,
+  "homing_tests_passed": 8,
+  "authentication_regression_tests_passed": 15,
+  "hardware_accessed": false,
+  "relocated_folder_check": "passed",
+  "copied_sources_hashes": "unchanged",
+  "network_tests": "loopback only",
+  "python": "3.12.3",
+  "msgpack": "1.2.3",
+  "websockets": "15.0.1",
+  "active_setup": "left follower only; overhead-left and left wrist RGB images",
+  "state_dim": 8,
+  "action_dim": 8
+}
